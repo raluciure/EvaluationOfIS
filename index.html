@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<HTML>
+ <HEAD>
+ <TITLE>Cala Tour</TITLE>
+ </HEAD>
+ <style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {}
+
+/* body {background: linear-gradient(to right, #01001b 20%, #00d4ff); height: 100vh;} */
+img,
+svg {
+    width: 100%;
+    height: auto;
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-just-center {
+    justify-content: center;
+}
+
+.flex-just-btw {
+    justify-content: space-between;
+}
+
+.flex-al-center {
+    align-items: center;
+}
+
+.txt-al-center {
+    text-align: center;
+}
+
+.padd-20 {
+    padding: 20px;
+}
+
+.padd-t-80 {
+    padding: 80px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/* HEADER */
+header {
+    background-color: #01001b;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.header-logo {
+    width: 100px;
+}
+
+.main-menu__item {
+    padding: 0 20px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.header-rsp-menu-btn {
+    width: 40px;
+    display: none;
+}
+
+.menu-responsive {
+    display: none;
+    position: fixed;
+    background: #01001b;
+    color: #ffffff;
+    height: 100%;
+    width: 35%;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.menu-responsive__item {
+    margin-top: 60px;
+}
+
+.menu-responsive-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.menu-responsive-close-btn__btn {
+    width: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .header-rsp-menu-btn {
+        display: block;
+    }
+
+    .main-menu {
+        display: none;
+    }
+
+    .menu-responsive {
+        display: block;
+    }
+}
+
+.menu-responsive.active {
+    right: 0;
+    transition: 0.2s;
+}
+
+.icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25px;
+    height: auto;
+}
+
+.icon-hover {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25px;
+    height: auto;
+    margin-top: -25px;
+}
+
+.main-menu__item img:nth-child(2) {
+    visibility: hidden;
+}
+
+.main-menu__item:hover img:nth-child(1) {
+    visibility: hidden;
+}
+
+.main-menu__item:hover img:nth-child(2) {
+    visibility:visible;
+}
+
+.main-menu__item:hover p {
+    color: black;
+}
+
+.icon-text {
+    font-size: 14px;
+    text-align: center;
+}
+
+.li {
+    align-content: center;
+    align-self: center;
+}
+
+button {
+    color: white;
+    font-size: 14px;
+    font-family: monospace;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: white;
+    transition: 0.3s;
+    color: black;
+}
+
+.button-item {
+    padding: 0 20px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.main-menu__item:hover {
+    background-color: white;
+    transition: 0.3s;
+}
+
+.menu-responsive__item:hover {
+    background-color: #09205e;
+    transition: 0.3s;
+}
+.welcome-text {
+    font-family: monospace;
+    font-size: 40px;
+    margin-left: 50px;
+    margin-top: 5px;
+}
+
+::placeholder {
+    color: black;
+}
+
+.container {
+    position: absolute;
+    margin-top: 100px;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    margin-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+select:required:invalid {
+    color: #666;
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
+option {
+    color: #000;
+}
+
+.search-icon {
+    margin-top: 24px;
+    width: 40px;
+    height: 38px;
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.form-group {
+    width: 300px;
+}
+
+.suggested {
+    font-family: monospace;
+    font-size: 26px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.card-group {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    align-items: stretch;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.card {
+    margin-right: 30px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    padding: 15px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(0.98);
+}
+
+.container-card {
+    padding: 2px 16px;
+}
+
+.img-card {
+    height: 300px;
+    width: auto;
+    cursor: pointer;
+}
+
+.card-text {
+    font-size: 14xp;
+    font-family: monospace;
+}
+
+.purpose-text {
+    font-size: 10xp;
+    font-family: monospace;
+    margin-left: 17px;
+    margin-top: 10px;
+}
+
+.price-text {
+    font-size: 10xp;
+    font-family: monospace;
+    margin-left: 17px;
+}
+
+.card-icon {
+    width: 25px;
+    margin-left: 165px;
+    /* margin-top: -70px; */
+    cursor: pointer;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select {
+    height: 30px;
+}
+
+label {
+    font-size: 18px;
+}
+ </style>
+ <BODY>
+	<div class="menu-responsive">
+		<div class="menu-responsive-close-btn padd-20">
+			<button class="menu-responsive-close-btn__btn pointer">
+				<img src="assets/close.svg" alt="close icon" (click)="closeMenu()" />
+			</button>
+		</div>
+	
+		<nav class="padd-20">
+			<ul>
+				<li routerLink="/give-book" class="menu-responsive__item pointer">Sell or lend book</li>
+				<li class="menu-responsive__item pointer" (click)="toUnimplemented()">Favorites</li>
+				<li class="menu-responsive__item pointer" (click)="toUnimplemented()">Chat</li>
+				<li class="menu-responsive__item pointer" (click)="toUnimplemented()">My profile</li>
+			</ul>
+		</nav>
+	</div>
+	
+	<header class="flex flex-just-btw flex-al-center padd-20">
+		<div class="header-logo pointer" (click)="toWelcomePage()">
+			<img src="assets/logo.png" alt="Book corner logo" />
+		</div>
+		<nav class="main-menu">
+			<ul class="flex">
+				<li  routerLink="/give-book"  class="button-item">
+					<button type="button">
+						Sell or lend a book
+					</button>
+				</li>
+	
+				<li class="main-menu__item pointer">
+					<img class="icon" src="assets\chat.svg" alt="chat icon">
+					<img class="icon-hover" src="assets\black-chat.svg" alt="chat icon">
+					<p class="icon-text">Chat</p>
+				</li>
+				<li class="main-menu__item pointer">
+					<img class="icon" src="assets\heart.svg" alt="favorites icon">
+					<img class="icon-hover" src="assets\black-heart.svg" alt="favorites icon">
+					<p class="icon-text">Favorites</p>
+				</li>
+				<li class="main-menu__item pointer">
+					<img class="icon" src="assets\profile.svg" alt="profile icon">
+					<img class="icon-hover" src="assets\black-profile.svg" alt="profile icon">
+					<p class="icon-text">My profile</p>
+				</li>
+			</ul>
+		</nav>
+		<div class="header-rsp-menu-btn">
+			<button class="header-rsp-menu-btn__btn pointer">
+				<img src="assets/menu.svg" alt="menu icon" />
+			</button>
+		</div>
+	</header>
+
+    <div class="container">
+        <p class="welcome-text">Hello, Alberto!</p>
+        <form class="form" name="myForm">
+            <div class="form-group">
+                <label>Title</label>
+                <input appHighlight class="form-control" type="text" placeholder="Title, ISBN...">
+            </div>
+    
+            <div class="form-group">
+                <label>Category</label>
+                <select class="form-select" aria-label="Category select"
+                    placeholder="Category">
+                    <option value="" disabled selected hidden>Choose</option>
+                    <option value="Academic" [selected]="(book.category == 'Academic')">Academic</option>
+                    <option value="Narrative" [selected]="(book.category == 'Narrative')">Narrative</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label>Purpose</label>
+                <select class="form-select" aria-label="Category select"
+                    placeholder="Purpose">
+                    <option value="" disabled selected hidden>Choose</option>
+                    <option value="Buy" [selected]="(purpose == 'Buy')">Buy</option>
+                    <option value="Borrow" [selected]="(purpose == 'Borrow')">Borrow</option>
+                </select>
+            </div>
+    
+            <div class="form-group" type="submit">
+                <img class="search-icon" src="assets\search.svg" alt="start search button">
+            </div>
+        </form>
+    
+        <p class="suggested">Suggested for you</p>
+    
+        <div class="card-group">
+            <div class="card">
+                <img class="img-card" src="assets\book1.jpg" alt="Avatar" style="width:100%">
+                <div class="container-card">
+                    <p class="card-text"><b>A Time to Kill</b></p>
+                </div>
+                <p class="price-text">€5.90</p>
+            </div>
+            <div class="card">
+                <img class="img-card" src="assets\book2.jpg" alt="Avatar" style="width:100%">
+                <div class="container-card">
+                    <p class="card-text"><b>The House of Mirth</b></p>
+                </div>
+                <p class="price-text">for free</p>
+            </div>
+            <div class="card">
+                <img class="img-card" src="assets\book3.jpg" alt="Avatar" style="width:100%">
+                <div class="container-card">
+                    <p class="card-text"><b>East of Eden</b></p>
+                </div>
+                <p class="price-text">€5.90</p>
+            </div>
+            <div class="card">
+                <img class="img-card" src="assets\book4.jpg" alt="Avatar" style="width:100%">
+                <div class="container-card">
+                    <p class="card-text"><b>The Sun Also Rises</b></p>
+                </div>
+                <p class="price-text">€3.50</p>
+            </div>
+            <div class="card">
+                <img class="img-card" src="assets\book5.jpg" alt="Avatar" style="width:100%">
+                <div class="container-card">
+                    <p class="card-text"><b>Vile Bodies</b></p>
+                </div>
+                <p class="price-text">€2</p>
+            </div>
+        </div>
+    
+    </div>
+	
+ </BODY>
+</HTML>
